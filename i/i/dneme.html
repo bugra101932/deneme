@@ -120,9 +120,11 @@ padding: 8px 8px 8px 32px !important;
   color: white;
   transform: rotateY(180deg);
 }
+
 /* width */
 ::-webkit-scrollbar {
-    width: 15px;
+    width: 10px;
+	display:none;
 }
 
 /* Track */
@@ -142,6 +144,7 @@ padding: 8px 8px 8px 32px !important;
     background: #b30000; 
 }
 .icon-bar {
+	
 	position:fixed;
 	left:0;
 	bottom:0;
@@ -163,8 +166,41 @@ padding: 8px 8px 8px 32px !important;
 .icon-bar a:hover {
     background-color: #000;
 }
+#mySidenav a {
+    position: absolute;
+    right: -80px;
+    transition: 0.3s;
+    padding: 15px;
+    width: 100px;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    border-radius: 0 5px 5px 0;
+}
 
+#mySidenav a:hover {
+    right: 0;
+}
 
+#about {
+    top: 20px;
+    background-color: #4CAF50;
+}
+
+#blog {
+    top: 80px;
+    background-color: #2196F3;
+}
+
+#projects {
+    top: 140px;
+    background-color: #f44336;
+}
+
+#contact {
+    top: 200px;
+    background-color: #555
+}
 </style>
 </head>
 <body>
@@ -210,7 +246,7 @@ padding: 8px 8px 8px 32px !important;
 			</tr>
 			
 		<tr>
-			<td style=" border:1px solid black"><input type="checkbox" "/></td>
+			<td style=" border:1px solid black"><input type="checkbox"/></td>
 			<td style="text-align:left; padding:8px; background-color:#bbbb;">İNC Bilisim</td>
 			<td style="text-align:left; padding:8px; background-color:#bbbb;">192.212.1.205</td>
 			<td style="text-align:left; padding:8px; background-color:#bbbb;">T5447RF321Z</td>
@@ -222,11 +258,20 @@ padding: 8px 8px 8px 32px !important;
 </div>
 
 <div id="Anasayfa" class="tabcontent">
+	<div id="mySidenav" class="sidenav">
+		<a href="#" id="about"onclick="greentema()">Green</a>
+		<a href="#" id="blog" onclick="bluetema()">Blue</a>
+		<a href="#" id="projects"  onclick="redtema()">Red</a>
+		<a href="#" id="contact"onclick="blacktema()">Black</a>
+	</div>
+	<br>
+	<br>
   <h3 style="text-align:center; font-size:50px;">Anasayfa</h3>
-  <p style="text-align:center; font-size:35px; background-color:#1abc9c">Duyurular</p>
+  
+  <p id="duyurular" style="text-align:center; font-size:35px; background-color:#1abc9c">Duyurular</p>
 													<div class="flip-box">
 														<div class="flip-box-inner">
-															<div class="flip-box-front">
+															<div id="flip-front" class="flip-box-front">
 																<h1>Versiyon Güncellemesi Geldi</h1>
 																<p"><b>Yenilikler</b>
 																</p>
@@ -239,7 +284,7 @@ padding: 8px 8px 8px 32px !important;
 																
 																
 															</div>
-																<div class="flip-box-back">
+																<div id="flip-back" class="flip-box-back">
 																<h1>Bizimle İletişime Geçin</h1>
 																<p"><b>Telefon</b>
 																</p>
@@ -276,7 +321,7 @@ padding: 8px 8px 8px 32px !important;
 			</tr>
 			
 		<tr>
-			<td style=" border:1px solid black"><input type="checkbox" "/></td>
+			<td style=" border:1px solid black"><input type="checkbox"/></td>
 			<td style="text-align:left; padding:8px; background-color:#bbbb;">İNC Bilisim</td>
 			<td style="text-align:left; padding:8px; background-color:#bbbb;">Yazılım</td>
 			<td style="text-align:left; padding:8px; background-color:#bbbb;">241</td>
@@ -287,13 +332,35 @@ padding: 8px 8px 8px 32px !important;
 		</table>
 </div>
   </div>
+  
+   <div id="Ayarlar" class="tabcontent" align="center">
+ 
+	<h3 style="text-align:center; font-size:50px;">Ayarlar</h3><br>
+	
+	
+	<hr>
+		<input type="text" placeholder="Eski Şifre" name="oldpass"><br>
+		<input type="text" placeholder="Yeni Şifre" name="newpass"><br>
+		<input type="text" placeholder="Tekrar Yeni Şifre" name="newpass2"><br>
+		<button style="border-radius:15px;">Kaydet</button>
+		
+	
+	
+</div>
+  
 
-  <div class="icon-bar">
+  <div id="icon-bar" class="icon-bar">
   <a href="http://www.incbilisim.com/"><i class="fa fa-facebook-square"></i></a> 
   <a href="http://www.incbilisim.com/"><i class="fa fa-instagram"></i></a> 
   <a href="http://www.incbilisim.com/"><i class="fa fa-twitter"></i></a> 
   <a href="http://www.incbilisim.com/"><i class="fa fa-question-circle"></i></a>
-  <a href="http://www.incbilisim.com/"><i class="fa fa-cogs"></i></a> 
+  <a onclick="openCity(event, 'Ayarlar')"><i class="fa fa-cogs"></i></a> 
+  
+
+ 
+	
+	
+ 
 </div>
   
   
@@ -327,6 +394,47 @@ function openCity(evt, cityName){
 }
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
+</script>
+
+<script>
+function bluetema() {
+   
+    document.body.style.backgroundImage = "url('inc-background.jpg')";
+	document.getElementById("duyurular").style.backgroundColor = "#1abc9c";
+	document.getElementById("flip-back").style.backgroundColor = "dodgerblue";
+	document.getElementById("flip-front").style.backgroundColor = "#1abc9c";
+	document.getElementById("icon-bar").style.backgroundColor = "#1abc7b";
+}
+</script>
+<script>
+function redtema() {
+   
+    document.body.style.backgroundImage = "url('red-wallpaper-8.jpg')";
+	document.getElementById("duyurular").style.backgroundColor = "#DF2525";
+	document.getElementById("flip-back").style.backgroundColor = "E80909";
+	document.getElementById("flip-front").style.backgroundColor = "#DF2525";
+	document.getElementById("icon-bar").style.backgroundColor = "#EC5B5B";
+}
+</script>
+<script>
+function greentema() {
+   
+    document.body.style.backgroundImage = "url('green.jpg')";
+	document.getElementById("duyurular").style.backgroundColor = "#7AC47E";
+	document.getElementById("flip-back").style.backgroundColor = "#2ABD32";
+	document.getElementById("flip-front").style.backgroundColor = "#7AC47E";
+	document.getElementById("icon-bar").style.backgroundColor = "#17901E";
+}
+</script>
+<script>
+function blacktema() {
+   
+    document.body.style.backgroundImage = "url('black.jpg')";
+	document.getElementById("duyurular").style.backgroundColor = "#B0B0B0";
+	document.getElementById("flip-back").style.backgroundColor = "#707070";
+	document.getElementById("flip-front").style.backgroundColor = "#B0B0B0";
+	document.getElementById("icon-bar").style.backgroundColor = "#484848";
+	}
 </script>
      
 </body>

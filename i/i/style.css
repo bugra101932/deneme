@@ -1,0 +1,39 @@
+
+body{
+  background-color: #e4cb1f;
+}
+
+
+.girisbody{
+  background-color: #70B851;
+}
+
+
+.giris_ekrani{
+  background-color: #F2A365;
+  width: 250px;
+  margin: 0 auto;
+  margin-top: 100px;
+  border: 10px solid #F2A365;
+  border-radius: 18px;
+
+
+
+}
+.giris_metin{
+  font-size: 25px;
+  margin-left: 40px;
+}
+.giris_button{
+  background-color: #F2E05B;
+  border: none;
+  width: 45px;
+  height: 25px;
+  margin-left: 105px;
+  border-radius: 19px;
+}
+.giris_box{
+  margin-left: 40px;
+  border-radius: 17px;
+}
+
